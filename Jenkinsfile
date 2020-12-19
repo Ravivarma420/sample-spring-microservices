@@ -29,7 +29,15 @@ stage ('Build1')
        sh "cd /home/ubuntu/workspace/newp/account-service ; sudo docker build -t account-service . " 
     }
 }
- 
+  stage ('dockerimagepush') 
+{
+    steps
+    {
+       sh "cd /home/ubuntu/workspace/newp/account-service ; sudo docker login -usuramdev -pRavidocker123 " 
+        sh "cd /home/ubuntu/workspace/newp/account-service ; sudo docker tag account-service suramdev/account-service "
+        sh "cd /home/ubuntu/workspace/newp/account-service ; sudo docker push suramdev/account-service "
+    }
+}
 }
     
 }
