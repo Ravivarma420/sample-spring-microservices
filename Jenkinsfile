@@ -38,6 +38,14 @@ stage ('Build1')
         sh "cd /home/ubuntu/workspace/newp/account-service ; sudo docker push suramdev/account-service "
     }
 }
+    stage ('k8deployment')
+      {
+          steps {
+              node ('ansible') {
+                 sh " cd /root : sudo ansible-playbook kubernetes.yml"
+              }
+          }
+      }          
 }
     
 }
