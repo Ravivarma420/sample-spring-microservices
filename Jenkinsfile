@@ -42,7 +42,7 @@ stage ('Build1')
       {
           steps {
               node ('ansible') {
-                 sh " cd /root : sudo ansible-playbook kubernetes.yml"
+                 sh " sudo ansible-playbook /root/kubernetes.yml"
               }
           }
       }          
